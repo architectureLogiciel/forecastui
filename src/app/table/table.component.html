@@ -1,0 +1,12 @@
+<table>
+    <tr >
+      <th class="flex-column ">Name</th>
+      <th >Price</th>
+      <th>forecast</th>
+    </tr>
+    <tr  *ngFor="let product of products"> 
+        <td class="flex-column " >{{ product.name }}</td>
+        <td>{{  product.price }}</td>
+        <td><button (click)="forecast(  product.id )">forecast</button></td>
+    </tr>
+  </table>

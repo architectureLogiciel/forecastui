@@ -1,0 +1,25 @@
+<div class="container-fluid px-1 py-5 mx-auto back">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <div class="card-main">
+                <h5 class="text-center ">login</h5>
+                <br/><br/>
+                <form class="form-card" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                   
+                    <div class="justify-content-between text-center form-group  flex-column d-flex" > 
+                             <label class="form-control-label px-3">your email</label> 
+                             <input formControlName="email" type="text" id="email" name="email" placeholder="" >  
+                    </div>
+                    <div class="justify-content-between text-center form-group  flex-column d-flex" > 
+                            <label class="form-control-label px-3">password</label>
+                            <input formControlName="password" type="text" id="password" name="password" placeholder="" >     
+                    </div>     
+                    <div class="  form-group col-sm-11  flex-column d-flex">
+                         <button type="submit" [disabled]="!userForm.valid" class="btn-block btn-primary">submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+  </div>
