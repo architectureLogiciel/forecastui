@@ -7,6 +7,6 @@
               </div>
       </div>
  
-<app-form  ></app-form>    
-<app-table></app-table>
-<app-forecast></app-forecast>  
+<app-form  *ngIf="!tokenbool" (gentoken)="token($event)" ></app-form>   
+<app-table (Pforecast)="forecast($event)" *ngIf="tokenbool" [token]="tokenvalue"></app-table>
+<app-forecast *ngIf="forecastb" [forecast]="forecastP" ></app-forecast>  

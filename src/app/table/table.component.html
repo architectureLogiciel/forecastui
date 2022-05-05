@@ -4,9 +4,16 @@
       <th >Price</th>
       <th>forecast</th>
     </tr>
-    <tr  *ngFor="let product of products"> 
-        <td class="flex-column " >{{ product.name }}</td>
-        <td>{{  product.price }}</td>
-        <td><button (click)="forecast(  product.id )">forecast</button></td>
-    </tr>
+    
+    
+    <tr  *ngFor="let product of products "> 
+      <td class="flex-column " >{{ product.name }}</td>
+      <td>{{  product.price }}</td>
+      <td><button (click)="forecast(product.id )">forecast</button></td>
+      
+  </tr>
   </table>
+
+  <app-forecast *ngIf="forecastb" [forecast]="forecasts" ></app-forecast>  
+
+  

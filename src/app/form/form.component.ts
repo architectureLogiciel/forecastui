@@ -1,6 +1,7 @@
-import { Component,EventEmitter,Output, OnInit } from '@angular/core';
+import { Component,EventEmitter,Output, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl ,Validators }  from '@angular/forms';
-//import { ServiceService } from '../service.service';
+import { ServiceService } from '../service.service';
+
 
 @Component({
   selector: 'app-form',
@@ -8,10 +9,10 @@ import { FormGroup, FormControl ,Validators }  from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  
   user={
     email: '',
     password:''
-
   }
 
   userForm = new FormGroup({
@@ -27,20 +28,29 @@ export class FormComponent implements OnInit {
 });
   
   submited=false;
+ 
   
-  @Output()valueSubscibedChanged=new EventEmitter();
+  @Output()gentoken=new EventEmitter<string>();
   @Output()newUser=new EventEmitter();
-  constructor(/*private service:ServiceService*/) { 
+ 
+
+  printtoken(value: string) {
+    this.gentoken.emit(value);
+  }
+  constructor(private service:ServiceService) { 
   
   }
-  
+  token:any;
+
    onSubmit() {
     console.log(this.userForm.value);
     this.submited=true;
-    /*this.id= this.service.adduser(this.profileForm.value);
-    this.valueSubscibedChanged.emit(this.profileForm.value); 
-    this.newUser.emit(this.id);
-    this.submited=true;*/
+    this.token=this.service.postuser(this.userForm.value);
+    console.log("success");
+    console.log(this.token);
+    this.printtoken(this.token);
+    
+
   }
 
   ngOnInit(): void {

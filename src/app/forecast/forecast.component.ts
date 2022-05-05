@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 
 @Component({
@@ -7,20 +7,23 @@ import * as d3 from 'd3';
   styleUrls: ['./forecast.component.css']
 })
 export class ForecastComponent implements OnInit {
+
+  @Input() forecast =[];
   private data = [
-    {"Framework": "Vue", "Stars": "166443", "Released": "2014"},
-    {"Framework": "React", "Stars": "150793", "Released": "2013"},
-    {"Framework": "Angular", "Stars": "62342", "Released": "2016"},
-    {"Framework": "Backbone", "Stars": "27647", "Released": "2010"},
-    {"Framework": "Ember", "Stars": "21471", "Released": "2011"},
-    {"Framework": "Vue", "Stars": "166443", "Released": "2014"},
-    {"Framework": "React", "Stars": "150793", "Released": "2013"},
-    {"Framework": "Angular", "Stars": "62342", "Released": "2016"},
-    {"Framework": "Backbone", "Stars": "27647", "Released": "2010"},
-    {"Framework": "Ember", "Stars": "21471", "Released": "2011"},
-    {"Framework": "Backbone", "Stars": "27647", "Released": "2010"},
-    {"Framework": "Ember", "Stars": "1021471", "Released": "2011"},
+    {"month": "January", "count": "166443"},
+    {"month": "February", "count": "150793"},
+    {"month": "March", "count": "62342"},
+    {"month": "April", "count": "27647"},
+    {"month": "May", "count": "21471"},
+    {"month": "June", "count": "166443"},
+    {"month": "July", "count": "150793"},
+    {"month": "August", "count": "62342"},
+    {"month": "September", "count": "27647"},
+    {"month": "October", "count": "21471"},
+    {"month": "November", "count": "27647"},
+    {"month": "December", "count": "1021471"},
   ];
+  
   private svg: d3.Selection<SVGGElement, unknown, HTMLElement, any> |any;
   private margin = 50;
   private width = 750;
@@ -44,13 +47,13 @@ export class ForecastComponent implements OnInit {
 }
 private createColors(): void {
   this.colors = d3.scaleOrdinal()
-  .domain(this.data.map(d => d.Stars.toString()))
+  .domain(this.data.map(d => d.count.toString()))
   .range(["#7400B8" ,"#6930C3","#5E60CE", "#5390D9", "#4EA8DE", "#48BFE3","#56CFE1","#64DFDF","#72EFDD","#80FFDB","#4AAFF0","#4CC9F0"]);
 }
 
 private drawChart(): void {
   // Compute the position of each group on the pie:
-  const pie = d3.pie<any>().value((d: any) => Number(d.Stars));
+  const pie = d3.pie<any>().value((d: any) => Number(d.count));
 
   // Build the pie chart
   this.svg
@@ -76,16 +79,24 @@ private drawChart(): void {
   .data(pie(this.data))
   .enter()
   .append('text')
-  .text((d: { data: { Framework: any; }; }) => d.data.Framework)
+  .text((d: { data: { month: any; }; }) => d.data.month)
   .attr("transform", (d: d3.DefaultArcObject) => "translate(" + labelLocation.centroid(d) + ")")
   .style("text-anchor", "middle")
   .style("font-size", 15);
 }
+private transformdata(data:any){
+  for (let index = 0; index < data.length; ++index) {
+     data[index].count=this.forecast[index];
+}}
 
   ngOnInit(): void {
+    this.transformdata(this.data);
+    console.log(this.data[0]);
     this.createSvg();
     this.createColors();
     this.drawChart();
   }
+  
+
 
 }
