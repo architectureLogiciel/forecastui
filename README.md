@@ -1,28 +1,27 @@
-# Front
+# forecast products
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<p align="justify">
 
-## Code scaffolding
+<img src="https://github.com/architectureLogiciel/forecastui/blob/main/login%20page.PNG" width="420" height="400" />
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<img src="https://github.com/architectureLogiciel/forecastui/blob/main/table%20products.PNG" width="420" height="400" />
 
-## Build
+<img src="https://github.com/architectureLogiciel/forecastui/blob/main/forecast%20result.PNG" width="420" height="400" />
+</p>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Features :
+1. login into the site.
+2. see all products.
+3. select one of the products to see her forecast results durant this year.
+4. see the forecast results .
 
-## Running unit tests
+### remarque:
+1. to see all products and do the process of the forecasting you must login first(generate token ).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-"# forecastui" 
+### Technologies used: 
+angular 
+#### to run this project 
+ng serve 
