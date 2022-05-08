@@ -4,11 +4,11 @@
 
 <p align="justify">
 
-<img src="https://github.com/architectureLogiciel/forecastui/blob/main/login%20page.PNG" width="180" height="320" />
+<img src="https://github.com/architectureLogiciel/forecastui/blob/main/login%20page.PNG" width="320" height="320" />
 
-<img src="https://raw.githubusercontent.com/architectureLogiciel/forecastui/table products.png" width="180" height="320" />
+<img src="https://github.com/architectureLogiciel/forecastui/blob/main/table%20products.PNG" width="320" height="320" />
 
-<img src="https://raw.githubusercontent.com/architectureLogiciel/forecastui/forecat resultas.png" width="180" height="320" />
+<img src="https://github.com/architectureLogiciel/forecastui/blob/main/forecast%20result.PNG" width="320" height="320" />
 </p>
 
 ### Features :
