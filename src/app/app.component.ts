@@ -12,8 +12,6 @@ export class AppComponent {
   forecastb=false;
   tokenvalue:any;
   forecastP:any;
-
-
   forecast(forecasts: any) {
     console.log(forecasts);
       if (forecasts!=null)
